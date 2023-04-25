@@ -1,10 +1,9 @@
-
-module  BookListing
+module BookListing
   def list_all_books
-     puts "Puts books"
+    puts 'list books'
   end
-  
+
   def add_book
-    puts "Puts book"
+    puts 'add book'
   end
 end

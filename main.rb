@@ -1,15 +1,15 @@
 require_relative './modules/app'
 def display_menu
-    puts "  \nSelect an option: "
-    puts "
+  puts "  \nSelect an option: "
+  puts "
     1- List all books
     2- List all music albums
     3- List all movies
     4- List of games
-    5- List all genres 
+    5- List all genres
     6- List all labels
-    7- List all authors 
-    8- List all sources 
+    7- List all authors
+    8- List all sources
     9- Add a book
     10- Add a music album
     11- Add a movie
@@ -30,12 +30,12 @@ ACTIONS = {
   10 => :add_music,
   11 => :add_movie,
   12 => :add_game,
-  13 => :Exit,
+  13 => :Exit
 }.freeze
 
 def main
-    puts "\n=========================================================
-    =======Welcome to Catalog of my things====== 
+  puts "\n=========================================================
+    =======Welcome to Catalog of my things======
 ========================================================="
   app = App.new
   choice = 0
@@ -44,7 +44,7 @@ def main
     choice = gets.chomp.to_i
     if choice == 13
       # Preserve the data
-    #   app.preseve_data
+      #   app.preseve_data
       puts 'Thank you for using this app!'
       exit
     end
@@ -58,7 +58,3 @@ def main
   end
 end
 main
-
-
-
-
