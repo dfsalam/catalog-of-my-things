@@ -1,8 +1,8 @@
-require 'item'
+require './item'
 
 class MusicAlbum < Item
-  def initialize(_publish_date, archived, on_spotify)
-    super(id, published_date, archived)
+  def initialize(archived: false, published_date, on_spotify: false)
+    super(archived, published_date)
     @on_spotify = on_spotify
   end
 
@@ -12,3 +12,4 @@ class MusicAlbum < Item
     false
   end
 end
+
