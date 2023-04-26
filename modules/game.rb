@@ -40,11 +40,11 @@ module GameModule
     last_name = gets.chomp
     new_author = Author.new(first_name, last_name)
     @authors << new_author
-    preseve_game
+    preserve_game
     puts "\nGame created successfully"
   end
 
-  def preseve_game
+  def preserve_game
     # GAMES
     game_objects = []
     @games.each do |game|
