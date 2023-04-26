@@ -9,7 +9,7 @@ module GameModule
         if @games.empty?
           puts 'Game list is empty...'
         else
-          puts "============ GAME LIST =============\n"
+          puts "============ GAME LIST =============\n\n"
           @games.each_with_index do |game, index|
             puts "#{index})   Multiplayer: #{game.multiplayer}, Publish Date : #{game.published_date}, Last Play at : #{game.last_play_at}"
           end
@@ -17,11 +17,6 @@ module GameModule
         puts "\n"
     end
     
-    def initialize(multiplayer, last_play_at, published_date, archived: false)
-        super(published_date, archived: archived)
-        @multiplayer = multiplayer
-        @last_play_at = last_play_at
-      end
     def add_game
         # GAME
         puts "\n"
@@ -37,7 +32,7 @@ module GameModule
 
         # AUTHOR
         puts "\n"
-        puts 'Please provide these information :'
+        puts 'Please provide these information about the author:'
         print 'First name : '
         first_name = gets.chomp
         print 'Last name : '
@@ -45,14 +40,19 @@ module GameModule
         new_author = Author.new(first_name,last_name)
         @authors << new_author
         puts 'Game created successfully'
-        # preseve_game
+        preseve_game
         puts "\n"
     end
 
     def preseve_game
+        # GAMES
         game_objects = []
-        @games.each { |game| game_objects << { id: game.id,first_name: game.first_name, last_name: game.last_name } }
-        File.write(DB, game_objects.to_json)
+        @games.each { |game| game_objects << { multi_player: game.multiplayer,last_play_date: game.last_play_date, published_date: game.published_date } }
+        File.write(DB_GAMES, game_objects.to_json)
+        # AUTHOR
+        author_objects = []
+        @authors.each { |author| author_objects << { id: author.id,first_name: author.first_name, last_name: author.last_name } }
+        File.write(DB_AUTHORS, author_objects.to_json)
     end
 
     def load_games
