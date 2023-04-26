@@ -5,7 +5,7 @@ class Game < Item
   include Helper
 
   def initialize(multiplayer, last_play_at, published_date, archived: false)
-    super(published_date, archived:)
+    super(published_date, archived: archived)
     @multiplayer = multiplayer
     @last_play_at = last_play_at
   end

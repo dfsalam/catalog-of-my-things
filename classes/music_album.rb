@@ -2,7 +2,7 @@ require './item'
 
 class MusicAlbum < Item
   def initialize(published_date, archived: false, on_spotify: false)
-    super(published_date, archived:)
+    super(published_date, archived: archived)
     @on_spotify = on_spotify
   end
 
