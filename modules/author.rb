@@ -4,7 +4,7 @@ module AuthorModule
     DB = './db/authors.json'
 
     def list_all_authors
-        puts "\n"
+      puts "\n============ AUTHORS LIST =============\n\n"
         if @authors.empty?
           puts 'Author list is empty.'
         else
@@ -13,27 +13,7 @@ module AuthorModule
           end
         end
         puts "\n"
-    end
-    
-    def add_author
-        puts "\n"
-        puts 'Please provide these information :'
-        print 'First name : '
-        first_name = gets.chomp
-        print 'Last name : '
-        last_name = gets.chomp
-        new_author = Author.new(first_name,last_name)
-        @authors << new_author
-        puts 'Author created successfully'
-        preseve_author
-        puts "\n"
-    end
-
-    def preseve_author
-        author_objects = []
-        @authors.each { |author| author_objects << { id: author.id,first_name: author.first_name, last_name: author.last_name } }
-        File.write(DB, author_objects.to_json)
-    end
+    end 
 
     def load_authors
         authors = []

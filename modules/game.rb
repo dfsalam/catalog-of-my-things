@@ -2,14 +2,14 @@ require_relative '../classes/game'
 require_relative '../classes/author'
 require 'json'
 module GameModule
-    DB = './db/games.json'
+    DB_GAMES = './db/games.json'
+    DB_AUTHORS = './db/authors.json'
 
     def list_all_games
-        puts "\n"
+        puts "\n============ GAMES LIST =============\n\n"
         if @games.empty?
           puts 'Game list is empty...'
         else
-          puts "============ GAME LIST =============\n\n"
           @games.each_with_index do |game, index|
             puts "#{index})   Multiplayer: #{game.multiplayer}, Publish Date : #{game.published_date}, Last Play at : #{game.last_play_at}"
           end
@@ -39,15 +39,15 @@ module GameModule
         last_name = gets.chomp
         new_author = Author.new(first_name,last_name)
         @authors << new_author
-        puts 'Game created successfully'
         preseve_game
-        puts "\n"
+        puts "\nGame created successfully"
+       
     end
 
     def preseve_game
         # GAMES
         game_objects = []
-        @games.each { |game| game_objects << { multi_player: game.multiplayer,last_play_date: game.last_play_date, published_date: game.published_date } }
+        @games.each { |game| game_objects << { id: game.id, multi_player: game.multiplayer,last_play_date: game.last_play_at, published_date: game.published_date } }
         File.write(DB_GAMES, game_objects.to_json)
         # AUTHOR
         author_objects = []
@@ -57,10 +57,10 @@ module GameModule
 
     def load_games
         games = []
-        if File.exist?(DB) && !File.empty?(DB)
-          data = JSON.parse(File.read(DB))
+        if File.exist?(DB_GAMES) && !File.empty?(DB_GAMES)
+          data = JSON.parse(File.read(DB_GAMES))
           data.each do |game| 
-            new_game = game.new(game['first_name'], game['last_name'])
+            new_game = Game.new(game['multi_player'], game['last_play_date'],game['published_date'])
             new_game.id = game['id']
             games <<  new_game
           end
