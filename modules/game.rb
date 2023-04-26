@@ -6,7 +6,7 @@ module GameModule
     def list_all_games
         puts "\n"
         if @games.empty?
-          puts 'Game list is empty.'
+          puts 'Game list is empty...'
         else
           puts "============ GAME LIST =============\n"
           @games.each_with_index do |game, index|
