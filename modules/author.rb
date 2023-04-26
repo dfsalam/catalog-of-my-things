@@ -6,7 +6,7 @@ module AuthorModule
     def list_all_authors
       puts "\n============ AUTHORS LIST =============\n\n"
         if @authors.empty?
-          puts 'Author list is empty.'
+          puts 'Author list is empty...'
         else
           @authors.each_with_index do |author, index|
             puts "#{index})  ID: #{author.id}, First name: #{author.first_name}, Last name: #{author.last_name}"
