@@ -4,5 +4,6 @@ class App
   include BookListing
   def initialize()
     @books = []
+    @labels = []
   end
 end
