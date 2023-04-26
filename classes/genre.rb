@@ -1,9 +1,9 @@
 class Genre
-  attr_accessor :genre_name
+  attr_accessor :genre_name, :items
   attr_reader :id, :animals
 
   def initialize(genre_name)
-    @id = Rand.random(1..100)
+    @id = Random.rand(1..100)
     @genre_name = genre_name
     @items = []
   end
