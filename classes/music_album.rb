@@ -1,15 +1,12 @@
 require './item'
 
 class MusicAlbum < Item
-  def initialize(archived: false, published_date, on_spotify: false)
-    super(archived, published_date)
+  def initialize(published_date, archived: false, on_spotify: false)
+    super(published_date, archived:)
     @on_spotify = on_spotify
   end
 
   def can_be_archived?
-    return super && on_spotify
-
-    false
+    super && on_spotify
   end
 end
-
