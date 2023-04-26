@@ -7,5 +7,6 @@ class App
   def initialize()
     @books = []
     @authors = load_authors
+    @games = load_games
   end
 end
