@@ -7,7 +7,7 @@ class MusicAlbum < Item
   end
 
   def can_be_archived?
-    return true if super && on_spotify
+    return super && on_spotify
 
     false
   end
