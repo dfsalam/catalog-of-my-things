@@ -29,7 +29,7 @@ module BookListing
     title = gets.chomp
     print 'Color: '
     color = gets.chomp
-    print 'Published date: '
+    print 'Please enter the published date (YYYY-MM-DD)'
     published_date = gets.chomp
     print 'Publisher: '
     publisher = gets.chomp

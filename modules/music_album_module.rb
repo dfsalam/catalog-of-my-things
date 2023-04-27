@@ -24,6 +24,7 @@ module Music
     puts 'What is the genre?'
     genre = gets.chomp
     create_music(date, genre, spotify, nil)
+    puts 'Album added successfully!!'
   end
 
   def create_music(date, genre, spotify, id)
