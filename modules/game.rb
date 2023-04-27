@@ -8,7 +8,10 @@ module GameModule
   def list_all_games
     puts "\n============ GAMES LIST =============\n\n"
     if @games.empty?
-      puts 'Game list is empty...'
+      puts "
+      ----------------------
+      | No games in catalog
+      ----------------------"
     else
       @games.each do |game|
         puts "
@@ -28,9 +31,9 @@ module GameModule
     puts 'Please provide the information about the game :'
     print 'Multilayer (Yes or No): '
     multi_player = gets.chomp
-    print 'Publish Date (Ex: 2023-04-13) : '
+    print 'Publish Date (YYYY-MM-DD): '
     published_date = gets.chomp
-    print 'Last Play Date (Ex: 2023-04-13): '
+    print 'Last Play Date (YYYY-MM-DD): '
     last_play_date = gets.chomp
     new_game = Game.new(multi_player, last_play_date, published_date)
     @games << new_game

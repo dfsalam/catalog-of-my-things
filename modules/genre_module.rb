@@ -1,11 +1,18 @@
 module GenreModule
   def list_all_genres
     if @genres.empty?
-      puts 'There are no genres added. '
+      puts "
+      ----------------------
+      | No genres in catalog
+      ----------------------"
     else
       puts '--------Genres--------'
       @genres.each do |genre|
-        puts "Name: #{genre.genre_name}, Id: #{genre.id}"
+        puts "
+       ---------------------------------------------------
+       | Name: #{genre.genre_name}
+       | Id: #{genre.id}
+       ---------------------------------------------------"
       end
     end
   end
@@ -42,7 +49,7 @@ module GenreModule
   end
 
   def load_genre_data
-    genre_json = 'DB/genre.json'
+    genre_json = 'db/genre.json'
     return [] unless File.exist?(genre_json)
 
     genre_data = JSON.parse(File.read(genre_json))
@@ -61,7 +68,7 @@ module GenreModule
       temp = { Name: genre.genre_name, Id: genre.id, Items: items }
       genre_json.push(temp)
     end
-    File.write('DB/genre.json', JSON.generate(genre_json))
+    File.write('db/genre.json', JSON.generate(genre_json))
   end
 
   def save_genre_items(genre)
