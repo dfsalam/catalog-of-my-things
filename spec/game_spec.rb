@@ -36,10 +36,8 @@ describe Game do
   end
 
   describe '#can_be_archived?' do
-    it 'Should return true' do
-      can_be_archived = @game.can_be_archived?
-
-      expect(can_be_archived).to be false
+    it 'Should return false' do
+      expect(@game.send(:can_be_archived?)).to be false
     end
   end
 end
