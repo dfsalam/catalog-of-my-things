@@ -9,7 +9,12 @@ module AuthorModule
       puts 'Author list is empty...'
     else
       @authors.each_with_index do |author, index|
-        puts "#{index})  ID: #{author.id}, First name: #{author.first_name}, Last name: #{author.last_name}"
+        puts "
+       ---------------------------------------------------
+       | Author ID: #{author.id}
+       | First name: #{author.first_name}
+       | Last name: #{author.last_name}
+       ---------------------------------------------------"
       end
     end
     puts "\n"

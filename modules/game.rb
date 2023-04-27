@@ -11,8 +11,12 @@ module GameModule
       puts 'Game list is empty...'
     else
       @games.each_with_index do |game, index|
-        puts "#{index})Multiplayer: #{game.multiplayer}
-        ,Publish Date: #{game.published_date},Last Play at:#{game.last_play_at}"
+        puts "
+       ---------------------------------------------------
+       | Multiplayer: #{game.multiplayer}
+       | Published date: #{game.published_date}
+       | Last Play at: #{game.last_play_at}
+       ---------------------------------------------------"
       end
     end
     puts "\n"
@@ -22,7 +26,7 @@ module GameModule
     # GAME
     puts "\n"
     puts 'Please provide the information about the game :'
-    print 'Multilayer : '
+    print 'Multilayer (Yes or No): '
     multi_player = gets.chomp
     print 'Publish Date (Ex: 2023-04-13) : '
     published_date = gets.chomp
