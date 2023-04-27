@@ -8,7 +8,7 @@ module AuthorModule
     if @authors.empty?
       puts 'Author list is empty...'
     else
-      @authors.each_with_index do |author, index|
+      @authors.each do |author|
         puts "
        ---------------------------------------------------
        | Author ID: #{author.id}

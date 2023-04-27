@@ -10,7 +10,7 @@ module GameModule
     if @games.empty?
       puts 'Game list is empty...'
     else
-      @games.each_with_index do |game, index|
+      @games.each do |game|
         puts "
        ---------------------------------------------------
        | Multiplayer: #{game.multiplayer}
