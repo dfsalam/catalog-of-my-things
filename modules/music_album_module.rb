@@ -19,7 +19,7 @@ module Music
        | Genre: #{music.genre.genre_name}
        | Is in Spotify?: #{music.on_spotify}
        | Id: #{music.id}
-       ---------------------------------------------------"        
+       ---------------------------------------------------"
       end
     end
   end
