@@ -14,7 +14,8 @@ def display_menu
     10- Add a music album
     11- Add a movie
     12- Add a game
-    13- Exit
+    13- Add a genre
+    14- Exit
     \n"
 end
 ACTIONS = {
@@ -30,7 +31,8 @@ ACTIONS = {
   10 => :add_music,
   11 => :add_movie,
   12 => :add_game,
-  13 => :Exit
+  13 => :add_genre,
+  14 => :Exit
 }.freeze
 
 def main
@@ -39,10 +41,10 @@ def main
 ========================================================="
   app = App.new
   choice = 0
-  while choice != 13
+  while choice != 14
     display_menu
     choice = gets.chomp.to_i
-    if choice == 13
+    if choice == 14
       # Preserve the data
       #   app.preseve_data
       puts 'Thank you for using this app!'
@@ -50,7 +52,7 @@ def main
     end
     method_name = ACTIONS[choice]
     if method_name.nil?
-      puts "\nYour choice is incorrect. Must between 1-13. Please try again...\n\n"
+      puts "\nYour choice is incorrect. Must between 1-14. Please try again...\n\n"
     else
       method_tocall = app.method(method_name)
       method_tocall.call
