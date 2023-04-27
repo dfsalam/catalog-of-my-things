@@ -11,6 +11,8 @@ class Game < Item
     @last_play_at = last_play_at
   end
 
+  private
+
   def can_be_archived?
     super && nb_years_passed(@last_play_at) > 2
   end

@@ -11,7 +11,8 @@ class App
   include Music
   include GenreModule
   def initialize()
-    @books = []
+    @books = load_books
+    @labels = load_labels
     @authors = load_authors
     @games = load_games
     @music = []
