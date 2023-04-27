@@ -11,7 +11,7 @@ module Music
       puts '--------Music Albums--------'
       @music.each do |music|
         print "Date: #{music.published_date}, Genre: #{music.genre.genre_name}, "
-        print "Is in Spotify?: #{music.on_spotify}, Id: #{music.id} \n"        
+        print "Is in Spotify?: #{music.on_spotify}, Id: #{music.id} \n"
       end
     end
   end
@@ -36,11 +36,10 @@ module Music
       new_genre = Genre.new(genre)
       new_genre.add_item(new_album)
       @genres.push(new_genre)
-      save_genre_data
     else
       genre_item.add_item(new_album)
-      save_genre_data
     end
+    save_genre_data
     save_music_data
   end
 

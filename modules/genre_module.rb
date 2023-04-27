@@ -16,12 +16,13 @@ module GenreModule
     end
     nil
   end
+
   # This is optional because I think the genre is created when an album, game, or book is created"
   def add_genre
     puts 'Please enter the genre name.'
     name = gets.chomp
     genre_item = verify_genre(name)
-    if genre_item ==nil
+    if genre_item.nil?
       create_genre(name, nil)
     else
       puts "The genre #{name} already exists."
