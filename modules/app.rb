@@ -1,4 +1,6 @@
 require_relative './book_module'
+require_relative './music_album_module'
+require_relative './genre_module'
 require_relative './author'
 require_relative './game'
 require_relative './music_album_module'
