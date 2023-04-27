@@ -6,7 +6,10 @@ module AuthorModule
   def list_all_authors
     puts "\n============ AUTHORS LIST =============\n\n"
     if @authors.empty?
-      puts 'Author list is empty...'
+      puts "
+      ----------------------
+      | No authors in catalog
+      ----------------------"
     else
       @authors.each do |author|
         puts "

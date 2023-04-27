@@ -8,7 +8,10 @@ module GameModule
   def list_all_games
     puts "\n============ GAMES LIST =============\n\n"
     if @games.empty?
-      puts 'Game list is empty...'
+      puts "
+      ----------------------
+      | No games in catalog
+      ----------------------"
     else
       @games.each do |game|
         puts "

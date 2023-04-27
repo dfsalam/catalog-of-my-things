@@ -6,12 +6,20 @@ module Music
   include GenreModule
   def list_all_music
     if @music.empty?
-      puts 'There are no albums added. '
+      puts "
+      ----------------------
+      | No albums in catalog
+      ----------------------"
     else
       puts '--------Music Albums--------'
       @music.each do |music|
-        print "Date: #{music.published_date}, Genre: #{music.genre.genre_name}, "
-        print "Is in Spotify?: #{music.on_spotify}, Id: #{music.id} \n"
+        puts "
+       ---------------------------------------------------
+       | Date: #{music.published_date}
+       | Genre: #{music.genre.genre_name}
+       | Is in Spotify?: #{music.on_spotify}
+       | Id: #{music.id}
+       ---------------------------------------------------"        
       end
     end
   end
@@ -45,7 +53,7 @@ module Music
   end
 
   def load_music_data
-    music_json = 'DB/music.json'
+    music_json = 'db/music.json'
     return [] unless File.exist?(music_json)
 
     music_data = JSON.parse(File.read(music_json))
@@ -63,6 +71,6 @@ module Music
       temp = { Date: music.published_date, Genre: music.genre.genre_name, Spotify: music.on_spotify, Id: music.id }
       music_json.push(temp)
     end
-    File.write('DB/music.json', JSON.generate(music_json))
+    File.write('db/music.json', JSON.generate(music_json))
   end
 end

@@ -32,16 +32,16 @@ def main
 ========================================================="
   app = App.new
   choice = 0
-  while choice != 11
+  while choice != 10
     display_menu
     choice = gets.chomp.to_i
-    if choice == 11
+    if choice == 10
       puts 'Thank you for using this app!'
       exit
     end
     method_name = ACTIONS[choice]
     if method_name.nil?
-      puts "\nYour choice is incorrect. Must between 1-11. Please try again...\n\n"
+      puts "\nYour choice is incorrect. Must between 1-10. Please try again...\n\n"
     else
       method_tocall = app.method(method_name)
       method_tocall.call
