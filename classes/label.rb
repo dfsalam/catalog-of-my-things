@@ -16,6 +16,8 @@ class Label
   end
 
   def add_label(label)
+    return if @labels.include?(label)
+
     @labels.push(label)
   end
 end
