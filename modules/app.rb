@@ -7,7 +7,8 @@ class App
   include AuthorModule
   include GameModule
   def initialize()
-    @books = []
+    @books = load_books
+    @labels = load_labels
     @authors = load_authors
     @games = load_games
   end
